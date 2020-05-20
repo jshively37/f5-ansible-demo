@@ -1,0 +1,9 @@
+---
+- hosts: bigip_devices
+  connection: local
+  tasks:
+  - name: Create A Pool
+    bigip_pool:
+      lb_method: ratio-member
+      name: Jeff-Web01
+      slow_ramp_time: 120
