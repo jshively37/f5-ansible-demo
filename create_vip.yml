@@ -4,9 +4,10 @@
   tasks:
   - name: Create A Pool
     bigip_pool:
-      server: "{{ bigip_server }}"
-      user: "{{ bigip_username }}"
-      password: "{{ bigip_password }}"
+      provider:
+        server: "{{ bigip_server }}"
+        user: "{{ bigip_username }}"
+        password: "{{ bigip_password }}"
       state: present
       partition: Common
       lb_method: ratio-member
