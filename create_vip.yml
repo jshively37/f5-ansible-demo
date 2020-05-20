@@ -1,16 +1,17 @@
 ---
 - hosts: bigip_devices
   connection: local
+  provider:
+    server: "{{ bigip_server }}"
+    user: "{{ bigip_username }}"
+    password: "{{ bigip_password }}"
   tasks:
   - name: Create A Pool
     bigip_pool:
-      provider:
-        server: "{{ bigip_server }}"
-        user: "{{ bigip_username }}"
-        password: "{{ bigip_password }}"
+      provider: "{{ provider }}"
       state: present
       partition: Common
       lb_method: ratio-member
-      name: Jeff-Web02
+      name: Jeff-Web03
       slow_ramp_time: 120
       validate_certs: False
