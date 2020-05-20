@@ -4,6 +4,11 @@
   tasks:
   - name: Create A Pool
     bigip_pool:
+      server: "{{ bigip_server }}"
+      user: "{{ bigip_username }}"
+      password: "{{ bigip_password }}"
+      state: present
+      partition: Common
       lb_method: ratio-member
       name: Jeff-Web01
       slow_ramp_time: 120
