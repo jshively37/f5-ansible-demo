@@ -1,0 +1,11 @@
+---
+- hosts: bigip_devices
+  connection: local
+  tasks:
+  - set_fact:
+      provider:
+        server: "{{ bigip_server }}"
+        user: "{{ bigip_username }}"
+        password: "{{ bigip_password }}"
+  - import_role:
+      name: create_pools
