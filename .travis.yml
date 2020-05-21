@@ -1,6 +1,11 @@
 language: python
+python:
+  - "3.8.1"
+env:
+  - ANSIBLE_VERSION=latest
 install:
-  - pip install ansible-lint
-  - ansible-lint --version
+  - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
+  - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible-lint; fi
 script:
-  - ansible-lint *.yml 
+  - ansible-playbook --syntax-check build_lb.yml
+  - ansible-lint
