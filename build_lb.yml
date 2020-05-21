@@ -13,5 +13,5 @@
   # - include_role:
   #     name: create_pools
   #     tasks_from: create_pools
-  - roles:
-      - create_pools
+  roles:
+    - create_pools
