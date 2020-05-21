@@ -9,7 +9,7 @@
       user: "{{ bigip_username }}"
       password: "{{ bigip_password }}"
 
-  tasks:
+  # tasks:
   # - include_role:
   #     name: create_pools
   #     tasks_from: create_pools
