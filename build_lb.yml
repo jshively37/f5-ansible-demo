@@ -1,11 +1,14 @@
 ---
-- hosts: bigip_devices
+- name: Build Load Balancer
+  hosts: bigip_devices
   connection: local
+
+  vars:
+    provider:
+      server: "{{ bigip_server }}"
+      user: "{{ bigip_username }}"
+      password: "{{ bigip_password }}"
+
   tasks:
-  - set_fact:
-      provider:
-        server: "{{ bigip_server }}"
-        user: "{{ bigip_username }}"
-        password: "{{ bigip_password }}"
-  - import_role:
+  - include_role:
       name: create_pools
