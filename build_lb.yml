@@ -6,7 +6,7 @@
 
   vars:
     provider:
-      server: "{{ansible_host }}"
+      server: "{{ ansible_host }}"
       server_port: "{{ ansible_port }}"
       user: "{{ bigip_username }}"
       password: "{{ bigip_password }}"
