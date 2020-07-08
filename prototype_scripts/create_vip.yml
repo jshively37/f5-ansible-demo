@@ -5,6 +5,7 @@
   - set_fact:
       provider:
         server: "{{ bigip_server }}"
+        port: "{{ bigp_port | d(443) }}"
         user: "{{ bigip_username }}"
         password: "{{ bigip_password }}"
   - name: Create A Pool

@@ -2,16 +2,16 @@
 - name: Build Load Balancer
   hosts: bigip_devices
   connection: local
+  gather_facts: false
 
   vars:
     provider:
-      server: "{{ bigip_server }}"
+      server: "{{ ansible_host }}"
+      server_port: "{{ ansible_port }}"
       user: "{{ bigip_username }}"
       password: "{{ bigip_password }}"
+      validate_certs: false
 
   tasks:
-    # - include_role:
-    # name: create_pools
-    #   tasks_from: create_pools
     - import_role:
         name: create_pools

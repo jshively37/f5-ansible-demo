@@ -1,0 +1,9 @@
+---
+pools:
+  - name: list1_test
+    state: present
+    partition: Common
+    slow_ramp_time: 120
+  - name: list2_test
+    state: present
+    lb_method: least-connections-node
